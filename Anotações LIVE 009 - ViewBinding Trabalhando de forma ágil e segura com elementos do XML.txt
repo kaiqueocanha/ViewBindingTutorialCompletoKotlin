@@ -1,0 +1,54 @@
+LIVE #009 - ViewBinding: Trabalhando de forma ágil e segura com elementos do XML
+
+	Aviso: Não confundir com o DataBinding (trataremos em outra live)
+
+	- ViewBinding veio como uma substituição do Kotlin Synthetics (Que era parte do plugin Kotlin Extensions, agora depreciado).
+
+	Veio como um recurso junto dos componentes de arquitetura do Jetpack, pra facilitar a programação de código que interagem com View (XML).
+
+	ViewBinding no seu código vai extinguir o famoso findViewById.
+
+Vantagens do ViewBinding:
+
+	- Segurança nula (Null Safety)
+
+		Um dos conceitos que o Kotlin trouxe no desenvolvimento Android Nativo, e que agora ta sendo amplamente adotado na plataforma inteira.
+
+	- Performance: ViewBinding tem um acréscimo de performance na hora de instanciar e interagir com os elementos da View. Removido o uso de anotações na vinculação das views.
+
+	- Segurança de tipo: significa que não há risco de uma exceção de transmissão de classes.
+
+	- Resolvido o problema dos ids duplicados em arquivos de layout XML diferentes.
+
+COMO FUNCIONA O VIEW BINDING:
+
+	Quando a gente cria uma actity no Android Studio, também é criado um arquivo de layout, de extensão XML.
+
+	Para você referenciar o layout XML, você terá de importar a classe de binding na sua activity ou fragment.
+
+	Você segue a regra de nomenclatura das classes de binding é a seguinte:
+
+		- Separar todas as palavras que compoem o nome do seu arquivo XML. A separação das palavras é dada pelo caracter _
+
+		activity_main = TOTAL DE 2 PALAVRAS { activity, main}
+
+		- Colocar em caixa alta (uppercase) a primeira letra de cada palavra.
+
+		activity_main = {Activity, Main}
+
+		- Concatenar todas as palavras
+
+		activity_main = ActivityMain
+
+		- Concatenar a palabra Binding (com B maiusculo) no final do nome obtido no passo anterior.
+
+		activity_main = ActivityMainBinding <- Esse é o nome da sua classe de Binding.
+
+OBSERVAÇÕES:
+
+	- Puts, meu projeto vai ficar cheio de classe de binding pra todo XML que eu criar. E agora?
+
+	Nãooooo.
+
+	Utilize o tools:viewBindingIgnore="true" nos xmls que você não quiser que gere a classe de binding!
+
